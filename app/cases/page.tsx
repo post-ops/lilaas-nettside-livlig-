@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { PremiumImage } from "@/components/premium-image";
 
 const cases = [
   {
@@ -30,7 +30,9 @@ export default function CasesPage() {
         {cases.map((c) => (
           <article key={c.title} className="rounded-xl border border-slate-800 bg-surface p-6">
             <h2 className="text-2xl font-semibold">{c.title}</h2>
-            <Image src={c.image} alt={c.title} width={800} height={500} className="mt-4 w-full rounded-md object-cover" />
+            <div className="mt-4">
+              <PremiumImage src={c.image} alt={c.title} variant="product" />
+            </div>
             <p className="mt-4 text-slate-300">
               <span className="font-medium text-white">Problem:</span> {c.problem}
             </p>

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { PremiumImage } from "@/components/premium-image";
 import { KEY_DATA_LINE } from "@/lib/site-data";
 
 export default function ThrusterPage() {
@@ -11,13 +11,9 @@ export default function ThrusterPage() {
 
       <section className="mt-10 rounded-xl border border-slate-700 bg-surface p-6">
         <h2 className="text-2xl font-semibold">System Overview</h2>
-        <Image
-          src="/images/thruster-system.jpg"
-          alt="Thruster control overview"
-          width={1400}
-          height={850}
-          className="mt-6 w-full rounded-md border border-slate-700 object-cover"
-        />
+        <div className="mt-6">
+          <PremiumImage src="/images/thruster-system.jpg" alt="Thruster control overview" variant="section" />
+        </div>
       </section>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2">

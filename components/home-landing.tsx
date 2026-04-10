@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { PremiumImage } from "@/components/premium-image";
 import type { ProductItem } from "@/lib/site-data";
 import { applicationAreas, KEY_DATA_LINE, products } from "@/lib/site-data";
 
@@ -39,18 +39,12 @@ export function HomeLanding() {
             </div>
             <p className="text-sm text-slate-300">ISO 9001 Certified • DNV-Aligned • Used in Global OEM Programs</p>
           </div>
-          <div className="rounded-2xl border border-slate-700 bg-surface p-6 shadow-card">
-            <Image
-              src="/images/bridge-control.jpg"
-              alt="Bridge control system"
-              width={1200}
-              height={800}
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="w-full rounded-xl border border-slate-700 object-cover"
-            />
-            <p className="mt-4 text-xs text-slate-400">Bridge-installed control interface for vessel maneuvering.</p>
-            <p className="mt-1 text-xs text-slate-400">Used in commercial and offshore vessel operations.</p>
+          <div className="overflow-hidden rounded-2xl border border-slate-600/50 bg-surface shadow-card">
+            <PremiumImage src="/images/bridge-control.jpg" alt="Bridge control system" variant="hero" priority />
+            <div className="border-t border-slate-800/80 px-5 py-4 md:px-6 md:py-5">
+              <p className="text-xs text-slate-400">Bridge-installed control interface for vessel maneuvering.</p>
+              <p className="mt-1 text-xs text-slate-400">Used in commercial and offshore vessel operations.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -94,7 +88,7 @@ export function HomeLanding() {
             const { href, label } = productExploreLink(product);
             return (
               <article key={product.name} className="rounded-xl border border-slate-700 bg-surface p-5 transition hover:scale-[1.02] hover:border-slate-500">
-                <Image src={product.image} alt={product.name} width={1000} height={650} className="w-full rounded-md border border-slate-700 object-cover" />
+                <PremiumImage src={product.image} alt={product.name} variant="product" />
                 <h3 className="mt-4 text-xl font-semibold">{product.name}</h3>
                 <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
                 <p className="mt-2 text-sm text-slate-400">Used in {product.usedIn}</p>
@@ -140,14 +134,9 @@ export function HomeLanding() {
             <li>- Designed for offshore and marine environments</li>
             <li>- Interfaces for bridge and vessel control architecture</li>
           </ul>
-          <Image
-            src="/images/thruster-system.jpg"
-            alt="Thruster control system"
-            width={1400}
-            height={900}
-            sizes="100vw"
-            className="mt-6 w-full rounded-xl border border-slate-700 object-cover"
-          />
+          <div className="mt-6">
+            <PremiumImage src="/images/thruster-system.jpg" alt="Thruster control system" variant="section" />
+          </div>
           <p className="mt-5 text-sm text-slate-300">{KEY_DATA_LINE}</p>
           <a href="#" className="mt-4 inline-block text-sm text-blue-300 hover:text-blue-200">
             Download Specification Sheet

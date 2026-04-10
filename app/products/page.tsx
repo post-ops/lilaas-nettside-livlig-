@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { PremiumImage } from "@/components/premium-image";
 import type { ProductItem } from "@/lib/site-data";
 import { KEY_DATA_LINE, products } from "@/lib/site-data";
 
@@ -31,7 +31,7 @@ export default function ProductsPage() {
           const { href, label } = productExploreLink(product);
           return (
             <article key={product.name} id={product.slug} className="scroll-mt-28 rounded-xl border border-slate-700 bg-surface p-5">
-              <Image src={product.image} alt={product.name} width={1000} height={650} className="w-full rounded-md border border-slate-700 object-cover" />
+              <PremiumImage src={product.image} alt={product.name} variant="product" />
               <h2 className="mt-4 text-xl font-semibold">{product.name}</h2>
               <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
               <p className="mt-2 text-sm text-slate-400">Used in {product.usedIn}</p>

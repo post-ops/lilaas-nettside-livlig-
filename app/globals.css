@@ -32,6 +32,18 @@ a {
   @apply text-xs uppercase tracking-[0.2em] text-blue-300;
 }
 
+/* Industrial photo treatment: depth, edge definition, no “flat web” look */
+.premium-image-frame {
+  @apply rounded-xl bg-slate-950;
+  box-shadow:
+    0 28px 56px -14px rgba(0, 0, 0, 0.58),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.premium-image-frame img {
+  @apply select-none;
+}
+
 @keyframes slideUp {
   from {
     transform: translateY(100%);

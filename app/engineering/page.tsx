@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { PremiumImage } from "@/components/premium-image";
 
 export default function EngineeringPage() {
   return (
@@ -10,13 +10,7 @@ export default function EngineeringPage() {
       <p className="eyebrow">Engineering</p>
       <h1 className="mt-4 text-4xl font-semibold md:text-6xl">Engineering Depth</h1>
       <div className="mt-8 rounded-xl border border-slate-800 bg-surface p-6">
-        <Image
-          src="/images/thruster-system.jpg"
-          alt="Thruster control system overview"
-          width={1200}
-          height={700}
-          className="w-full rounded-md object-cover"
-        />
+        <PremiumImage src="/images/thruster-system.jpg" alt="Thruster control system overview" variant="section" />
         <p className="mt-3 text-sm text-slate-400">
           Thruster control system overview with modular architecture and redundant control network.
         </p>
