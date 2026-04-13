@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ContactForm } from "@/components/contact-form";
 import { PremiumImage } from "@/components/premium-image";
 import type { ProductItem } from "@/lib/site-data";
@@ -65,7 +66,7 @@ export function HomeLanding() {
 
   return (
     <main className="overflow-x-hidden">
-      <section className="section-container section-spacing lively-section">
+      <section className="section-container section-spacing lively-section hero-ambient">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6">
             <p className="eyebrow">Marine Control Expertise</p>
@@ -100,7 +101,7 @@ export function HomeLanding() {
         </div>
       </section>
 
-      <section className="section-container section-spacing border-t border-cyan-800/35 lively-section">
+      <section className="section-container section-spacing border-t border-cyan-800/35 lively-section band-surface">
         <p className="eyebrow">Trusted Delivery Model</p>
         <h2 className="mt-4 text-3xl font-semibold md:text-5xl">Built for Critical Operations</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-4">
@@ -117,8 +118,12 @@ export function HomeLanding() {
         <p className="eyebrow">Solutions</p>
         <h2 className="mt-4 text-3xl font-semibold md:text-5xl">Control Units, Systems and Service in One Delivery Chain</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3 lively-grid">
-          {solutionColumns.map((column) => (
-            <article key={column.title} className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-accentMid/55">
+          {solutionColumns.map((column, index) => (
+            <article
+              key={column.title}
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-accentMid/55"
+            >
               <h3 className="text-xl font-semibold">{column.title}</h3>
               <p className="mt-3 text-slate-300">{column.body}</p>
               <Link href={column.href} className="mt-4 inline-block text-sm text-link hover:text-linkHover">
@@ -159,7 +164,7 @@ export function HomeLanding() {
         </Link>
       </section>
 
-      <section className="section-container section-spacing border-t border-cyan-800/35 lively-section">
+      <section className="section-container section-spacing border-t border-cyan-800/35 lively-section band-surface">
         <p className="eyebrow">Proof</p>
         <h2 className="mt-4 text-3xl font-semibold md:text-5xl">Measured Results in Real Delivery Programs</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">

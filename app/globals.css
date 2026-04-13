@@ -105,3 +105,41 @@ a {
   animation: fadeRise 560ms ease both;
   animation-delay: var(--delay, 0ms);
 }
+
+@keyframes ambientDrift {
+  0% {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+    opacity: 0.38;
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) scale(1.06);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+    opacity: 0.38;
+  }
+}
+
+.hero-ambient {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-ambient::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 70%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.24), transparent 48%),
+    radial-gradient(circle at 80% 40%, rgba(249, 115, 22, 0.22), transparent 46%);
+  z-index: -1;
+  filter: blur(24px);
+  animation: ambientDrift 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.band-surface {
+  background: linear-gradient(180deg, rgba(5, 22, 34, 0.24) 0%, rgba(9, 33, 49, 0.38) 100%);
+}
