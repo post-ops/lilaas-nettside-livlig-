@@ -1,4 +1,5 @@
-import { readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { PremiumImage } from "@/components/premium-image";
 
@@ -9,7 +10,7 @@ type MediaItem = {
   verification: "Verified model (lilaas.no)" | "Reference / unverified model";
 };
 
-function toTitle(filename: string, index: number): { title: string; verification: MediaItem["verification"] } {
+function titleFromCuratedName(filename: string): { title: string; verification: MediaItem["verification"] } {
   const name = filename.toLowerCase();
   if (name.includes("lf80")) return { title: "LF80 Rudder Control", verification: "Verified model (lilaas.no)" };
   if (name.includes("lf150")) return { title: "LF150 Rudder Control Unit", verification: "Verified model (lilaas.no)" };
@@ -24,6 +25,14 @@ function toTitle(filename: string, index: number): { title: string; verification
   if (name.includes("console")) return { title: "Control Console Reference", verification: "Reference / unverified model" };
   if (name.includes("bilde_nettside_lilaas")) return { title: "Lilaas Product Family Reference", verification: "Reference / unverified model" };
   if (name.includes("image-")) return { title: "Lilaas Reference Image", verification: "Reference / unverified model" };
+  return { title: "", verification: "Reference / unverified model" };
+}
+
+function toTitle(filename: string, index: number): { title: string; verification: MediaItem["verification"] } {
+  const direct = titleFromCuratedName(filename);
+  if (direct.title) return direct;
+
+  const name = filename.toLowerCase();
   if (name.includes("untitled")) {
     return { title: `Lilaas Product Render ${String(index + 1).padStart(2, "0")}`, verification: "Reference / unverified model" };
   }
@@ -33,6 +42,11 @@ function toTitle(filename: string, index: number): { title: string; verification
   return { title: `Lilaas Image ${String(index + 1).padStart(2, "0")}`, verification: "Reference / unverified model" };
 }
 
+async function fileSha1(path: string): Promise<string> {
+  const buffer = await readFile(path);
+  return createHash("sha1").update(buffer).digest("hex");
+}
+
 async function loadMedia(): Promise<MediaItem[]> {
   const folders = [
     { dir: join(process.cwd(), "public", "images", "curated"), prefix: "/images/curated/" },
@@ -40,21 +54,43 @@ async function loadMedia(): Promise<MediaItem[]> {
   ];
 
   const items: MediaItem[] = [];
+  const curatedByHash = new Map<string, { title: string; verification: MediaItem["verification"] }>();
+
+  const curatedFiles = (await readdir(folders[0].dir))
+    .filter((file) => /\.(png|jpg|jpeg|webp)$/i.test(file))
+    .sort((a, b) => a.localeCompare(b));
+
+  for (let index = 0; index < curatedFiles.length; index += 1) {
+    const file = curatedFiles[index];
+    const fullPath = join(folders[0].dir, file);
+    const hash = await fileSha1(fullPath);
+    curatedByHash.set(hash, toTitle(file, index));
+  }
 
   for (const folder of folders) {
     const files = await readdir(folder.dir);
-    files
-      .filter((file) => /\.(png|jpg|jpeg|webp)$/i.test(file))
-      .sort((a, b) => a.localeCompare(b))
-      .forEach((file, index) => {
-        const named = toTitle(file, index);
-        items.push({
-          src: `${folder.prefix}${file}`,
-          filename: file,
-          title: named.title,
-          verification: named.verification
-        });
+    const imageFiles = files.filter((file) => /\.(png|jpg|jpeg|webp)$/i.test(file)).sort((a, b) => a.localeCompare(b));
+
+    for (let index = 0; index < imageFiles.length; index += 1) {
+      const file = imageFiles[index];
+      const fullPath = join(folder.dir, file);
+
+      let named = toTitle(file, index);
+      if (folder.prefix === "/images/imported/") {
+        const hash = await fileSha1(fullPath);
+        const curatedMatch = curatedByHash.get(hash);
+        if (curatedMatch) {
+          named = curatedMatch;
+        }
+      }
+
+      items.push({
+        src: `${folder.prefix}${file}`,
+        filename: file,
+        title: named.title,
+        verification: named.verification
       });
+    }
   }
 
   return items;

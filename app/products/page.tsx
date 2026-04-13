@@ -37,7 +37,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         Select a category to review product families, then open a product card for technical notes and next-step contact.
       </p>
       <p className="mt-2 text-sm text-slate-400">
-        Verified against lilaas.no: LF80, LF90, LF120, LF150. Other entries are project references and require project-specific confirmation.
+        Product naming aligned with provided lilaas.no references (including L01, LF70, LE90, LF120, LF180, L04, LF50, LF60).
       </p>
 
       <div className="mt-10 flex flex-wrap gap-2">

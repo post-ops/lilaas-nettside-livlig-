@@ -13,35 +13,80 @@ export type ProductItem = {
 
 export const products: ProductItem[] = [
   {
+    slug: "l01-thruster-control",
+    name: "L01",
+    image: "/images/curated/lilaas-product-group-1.png",
+    specs: ["Dual-axis operator unit", "Marine-duty mechanical design", "Integration-ready interfaces"],
+    whatItIs: "Compact azimuth and thruster control unit for precision maneuvering.",
+    usedIn: "Azimuth propulsion systems and close-quarter vessel control.",
+    category: "Thruster Control"
+  },
+  {
+    slug: "lf70-thruster-control",
+    name: "LF70",
+    image: "/images/curated/console-variant-3.png",
+    specs: ["Propulsion-oriented lever geometry", "Color-coded operating sectors", "Heavy-duty bridge use"],
+    whatItIs: "Azimuth-oriented control lever family for propulsion and directional control.",
+    usedIn: "Azimuth bridge stations and offshore maneuvering consoles.",
+    category: "Thruster Control"
+  },
+  {
+    slug: "le90-control-lever",
+    name: "LE90",
+    image: "/images/curated/lilaas-product-group-2.png",
+    specs: ["Twin lever architecture", "Panel-mounted industrial housing", "Smooth mechanical response"],
+    whatItIs: "Dual control lever assembly for coordinated propulsion operation.",
+    usedIn: "Main bridge propulsion control and integrated operator desks.",
+    category: "Control Levers"
+  },
+  {
     slug: "lf120-control-lever",
-    name: "LF120 Control Lever",
-    image: "/images/curated/lf90x-lf120x.png",
-    specs: ["5 kOhm potentiometer", "Handle movement +/-60 deg", "IP66 with panel plate"],
-    whatItIs: "Control lever for single or double propulsion and thruster operation.",
-    usedIn: "Bridge control, offshore control consoles and maneuvering stations.",
+    name: "LF120",
+    image: "/images/curated/steering-panels.png",
+    specs: ["Multi-variant control head", "Color-coded operational ranges", "Compact bridge footprint"],
+    whatItIs: "Versatile propulsion control lever for single and dual station setups.",
+    usedIn: "Propulsion control, tunnel thruster and maneuvering stations.",
+    category: "Control Levers"
+  },
+  {
+    slug: "lf180-control-lever",
+    name: "LF180",
+    image: "/images/curated/console-variant-1.png",
+    specs: ["High-travel lever movement", "Mechanical detent options", "Panel or console integration"],
+    whatItIs: "High-range control lever for precise propulsion command input.",
+    usedIn: "Bridge control consoles and offshore propulsion stations.",
     category: "Control Levers"
   },
   {
     slug: "lf90-control-lever",
-    name: "LF90 Control Lever",
-    image: "/images/curated/steering-panels.png",
-    specs: ["5 kOhm potentiometer", "IP66 enclosure with panel plate", "24V integrated scale light"],
-    whatItIs: "Compact and robust multipurpose marine control lever.",
-    usedIn: "Propulsion control, bow and stern thruster operation.",
+    name: "LF90",
+    image: "/images/curated/console-variant-2.png",
+    specs: ["Twin-handle operation", "Mechanical feedback through full stroke", "Rugged enclosure design"],
+    whatItIs: "Classic marine control lever for propulsion and maneuvering tasks.",
+    usedIn: "Workboats, coastal vessels and retrofit bridge systems.",
     category: "Control Levers"
   },
   {
-    slug: "lf150-rudder-unit",
-    name: "LF150 Rudder Control Unit",
+    slug: "lf90x-lf120x-control-levers",
+    name: "LF90X and LF120X",
+    image: "/images/curated/lf90x-lf120x.png",
+    specs: ["Extended series mechanical platform", "Panel-mounted operator handles", "Configurable output setup"],
+    whatItIs: "Extended control lever family for tailored bridge control layouts.",
+    usedIn: "Integrated bridge systems and project-specific vessel controls.",
+    category: "Control Levers"
+  },
+  {
+    slug: "lf150-rudder-control",
+    name: "LF150",
     image: "/images/curated/lf150.png",
-    specs: ["Max turn up to 280 deg", "IP56 enclosure", "Approx. 3 kg net weight"],
-    whatItIs: "Rudder control unit for electronic steering applications.",
-    usedIn: "Marine steering stations and operator control desks.",
+    specs: ["Wheel and knob control options", "Detent in center", "Panel plate installation"],
+    whatItIs: "Rudder-focused control unit with multiple operator interface options.",
+    usedIn: "Steering control panels and marine helm stations.",
     category: "Control Levers"
   },
   {
     slug: "lf80-rudder-control",
-    name: "LF80 Rudder Control",
+    name: "LF80",
     image: "/images/curated/lf80.png",
     specs: ["Single 5 kOhm potentiometer", "Detent in zero", "Panel plate 96 x 96 mm"],
     whatItIs: "Small and reliable control lever for rudder control.",
@@ -49,12 +94,30 @@ export const products: ProductItem[] = [
     category: "Control Levers"
   },
   {
-    slug: "jx-marine-joystick",
-    name: "Marine Joystick Unit",
+    slug: "l04-joystick",
+    name: "L04",
     image: "/images/curated/joystick-concept.png",
-    specs: ["Dual-channel output", "Marine-duty construction", "Application-specific configuration"],
-    whatItIs: "Joystick-style control unit used for operator input.",
-    usedIn: "Deck machinery and bridge control stations (configuration dependent).",
+    specs: ["Compact joystick geometry", "Panel-mounted base option", "Single-hand precision operation"],
+    whatItIs: "Compact joystick for maneuver and control input in constrained consoles.",
+    usedIn: "Auxiliary controls, maneuvering input and custom operator stations.",
+    category: "Joysticks"
+  },
+  {
+    slug: "lf50-joystick",
+    name: "LF50",
+    image: "/images/curated/lilaas-product-family.png",
+    specs: ["Vertical grip control", "Rugged marine boot interface", "Short-throw precision movement"],
+    whatItIs: "Marine joystick unit designed for reliable directional input.",
+    usedIn: "Vessel control desks and deck machinery command panels.",
+    category: "Joysticks"
+  },
+  {
+    slug: "lf60-joystick",
+    name: "LF60",
+    image: "/images/curated/thruster-concept.png",
+    specs: ["Heavy-duty joystick platform", "Multi-shape handle variants", "Designed for demanding environments"],
+    whatItIs: "Joystick family for robust control applications in marine environments.",
+    usedIn: "Thruster and propulsion-adjacent operator interfaces.",
     category: "Joysticks"
   },
   {
