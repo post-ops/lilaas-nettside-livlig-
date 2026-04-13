@@ -18,10 +18,16 @@ export function SiteHeader() {
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm text-slate-300">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-orange-200">
+            <Link key={item.href} href={item.href} className="transition hover:text-accentSoft">
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="rounded-md bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accentHover"
+          >
+            Request Quote
+          </Link>
         </nav>
       </div>
     </header>

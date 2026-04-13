@@ -33,7 +33,7 @@ export function HomeLanding() {
               <Link href="/products" className="w-full md:w-auto text-center rounded-md bg-accent px-7 py-3.5 text-sm font-semibold text-white hover:bg-accentHover">
                 Explore Products
               </Link>
-              <Link href="/contact" className="w-full md:w-auto text-center rounded-md border border-cyan-700/35 px-6 py-3 text-sm font-medium text-slate-300 hover:border-orange-400/50">
+              <Link href="/contact" className="w-full md:w-auto text-center rounded-md border border-cyan-700/35 px-6 py-3 text-sm font-medium text-slate-300 hover:border-accentMid/55">
                 Contact Engineering
               </Link>
             </div>
@@ -53,23 +53,23 @@ export function HomeLanding() {
         <p className="eyebrow">Core Areas</p>
         <h2 className="mt-4 text-3xl font-semibold md:text-5xl">What We Build</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-orange-400/45">
+          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-accentMid/55">
             <h3 className="text-xl font-semibold">Control Levers</h3>
             <p className="mt-3 text-slate-300">Control levers for propulsion and maneuvering systems.</p>
             <p className="mt-2 text-sm text-slate-400">Used in bridge control and vessel operations.</p>
-            <Link href="/products" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
+            <Link href="/products?category=Control%20Levers" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
               Explore Products
             </Link>
           </article>
-          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-orange-400/45">
+          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-accentMid/55">
             <h3 className="text-xl font-semibold">Precision Mechanics</h3>
             <p className="mt-3 text-slate-300">Precision mechanical assemblies for control interfaces.</p>
             <p className="mt-2 text-sm text-slate-400">Used in bridge consoles and operator stations.</p>
-            <Link href="/products" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
+            <Link href="/products?category=Precision%20Mechanics" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
               Explore Products
             </Link>
           </article>
-          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-orange-400/45">
+          <article className="rounded-xl border border-cyan-800/35 bg-surface p-6 transition hover:scale-[1.02] hover:border-accentMid/55">
             <h3 className="text-xl font-semibold">Thruster Control</h3>
             <p className="mt-3 text-slate-300">Integrated thruster control system.</p>
             <p className="mt-2 text-sm text-slate-400">Used in offshore and commercial marine propulsion.</p>
@@ -87,7 +87,7 @@ export function HomeLanding() {
           {featuredProducts.map((product) => {
             const { href, label } = productExploreLink(product);
             return (
-              <article key={product.name} className="rounded-xl border border-cyan-700/30 bg-surface p-5 transition hover:scale-[1.02] hover:border-orange-400/45">
+              <article key={product.name} className="rounded-xl border border-cyan-700/30 bg-surface p-5 transition hover:scale-[1.02] hover:border-accentMid/55">
                 <PremiumImage src={product.image} alt={product.name} variant="product" />
                 <h3 className="mt-4 text-xl font-semibold">{product.name}</h3>
                 <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
@@ -138,9 +138,9 @@ export function HomeLanding() {
             <PremiumImage src="/images/thruster-system.jpg" alt="Thruster control system" variant="section" />
           </div>
           <p className="mt-5 text-sm text-slate-300">{KEY_DATA_LINE}</p>
-          <a href="#" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
-            Download Specification Sheet
-          </a>
+          <Link href="/contact" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
+            Request Specification Sheet
+          </Link>
           <Link href="/thruster" className="mt-6 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accentHover">
             Explore Thruster Control
           </Link>

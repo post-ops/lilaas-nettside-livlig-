@@ -33,7 +33,7 @@ export const products: ProductItem[] = [
   {
     slug: "lf150-rudder-unit",
     name: "LF150 Rudder Control Unit",
-    image: "/images/library/asset-05.png",
+    image: "/images/lilaas-lever.jpg",
     specs: ["Max turn up to 280 deg", "IP56 enclosure", "Approx. 3 kg net weight"],
     whatItIs: "Rudder control unit for electronic steering applications.",
     usedIn: "Marine steering stations and operator control desks.",
@@ -42,7 +42,7 @@ export const products: ProductItem[] = [
   {
     slug: "lf80-rudder-control",
     name: "LF80 Rudder Control",
-    image: "/images/library/asset-04.png",
+    image: "/images/lilaas-lever.jpg",
     specs: ["Single 5 kOhm potentiometer", "Detent in zero", "Panel plate 96 x 96 mm"],
     whatItIs: "Small and reliable control lever for rudder control.",
     usedIn: "Compact bridge panels and retrofit helm positions.",

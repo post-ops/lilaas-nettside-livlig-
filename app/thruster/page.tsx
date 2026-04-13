@@ -63,14 +63,14 @@ export default function ThrusterPage() {
           <li>- Improves control continuity under demanding duty cycles</li>
         </ul>
         <div className="mt-6">
-          <PremiumImage src="/images/library/asset-09.png" alt="Offshore vessel operation" variant="section" />
+          <PremiumImage src="/images/offshore-control.jpg" alt="Offshore vessel operation" variant="section" />
         </div>
       </section>
 
       <p className="mt-8 text-sm text-slate-300">Key Data: {KEY_DATA_LINE}</p>
-      <a href="#" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
-        Download Specification Sheet
-      </a>
+      <Link href="/contact" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
+        Request Specification Sheet
+      </Link>
 
       <div className="mt-8">
         <Link href="/contact" className="inline-block w-full md:w-auto rounded-md bg-accent px-6 py-3 text-center text-sm font-semibold text-white hover:bg-accentHover">

@@ -3,7 +3,11 @@ import { PremiumImage } from "@/components/premium-image";
 import type { ProductItem } from "@/lib/site-data";
 import { KEY_DATA_LINE, products } from "@/lib/site-data";
 
-const categories = ["Control Levers", "Joysticks", "Thruster Control", "Precision Mechanics"];
+const categories = ["All", "Control Levers", "Joysticks", "Thruster Control", "Precision Mechanics"] as const;
+type Category = (typeof categories)[number];
+type ProductsPageProps = {
+  searchParams: Promise<{ category?: string }>;
+};
 
 function productExploreLink(product: ProductItem) {
   if (product.category === "Thruster Control") {
@@ -12,7 +16,18 @@ function productExploreLink(product: ProductItem) {
   return { href: `/products#${product.slug}` as const, label: "Explore Product" as const };
 }
 
-export default function ProductsPage() {
+function resolveCategory(value?: string): Category {
+  if (value && categories.includes(value as Category)) {
+    return value as Category;
+  }
+  return "All";
+}
+
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const params = await searchParams;
+  const activeCategory = resolveCategory(params.category);
+  const filteredProducts = products.filter((product) => activeCategory === "All" || product.category === activeCategory);
+
   return (
     <main className="section-container section-spacing">
       <p className="eyebrow">Products</p>
@@ -20,17 +35,29 @@ export default function ProductsPage() {
 
       <div className="mt-10 flex flex-wrap gap-2">
         {categories.map((category) => (
-          <span key={category} className="rounded-full border border-cyan-700/30 bg-field/90 px-4 py-1.5 text-sm text-slate-300">
+          <Link
+            key={category}
+            href={category === "All" ? "/products" : `/products?category=${encodeURIComponent(category)}`}
+            className={`rounded-full border px-4 py-1.5 text-sm transition ${
+              activeCategory === category
+                ? "border-accent bg-accentSoft text-orange-100"
+                : "border-cyan-700/30 bg-field/90 text-slate-300 hover:border-accentMid/55"
+            }`}
+          >
             {category}
-          </span>
+          </Link>
         ))}
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
-        {products.map((product) => {
+        {filteredProducts.map((product) => {
           const { href, label } = productExploreLink(product);
           return (
-            <article key={product.name} id={product.slug} className="scroll-mt-28 rounded-xl border border-cyan-700/30 bg-surface p-5">
+            <article
+              key={product.name}
+              id={product.slug}
+              className="scroll-mt-28 rounded-xl border border-cyan-700/30 bg-surface p-5 transition hover:border-accentMid/55"
+            >
               <PremiumImage src={product.image} alt={product.name} variant="product" />
               <h2 className="mt-4 text-xl font-semibold">{product.name}</h2>
               <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
@@ -40,17 +67,32 @@ export default function ProductsPage() {
                   <li key={spec}>{spec}</li>
                 ))}
               </ul>
+              <details className="mt-4 rounded-md border border-cyan-800/35 bg-field/70 p-3 text-sm text-slate-300">
+                <summary className="cursor-pointer font-medium text-accentSoft">Read Technical Notes</summary>
+                <p className="mt-2 text-slate-300">
+                  {product.name} is configured for {product.usedIn.toLowerCase()}
+                </p>
+                <p className="mt-1 text-slate-400">
+                  Contact engineering to receive model-specific electrical options, panel cut-out details, and integration support.
+                </p>
+              </details>
               <Link href={href} className="mt-4 inline-block text-sm font-medium text-link hover:text-linkHover">
                 {label}
+              </Link>
+              <Link
+                href="/contact"
+                className="mt-3 inline-block rounded-md border border-accentMid/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-accentSoft hover:border-accent hover:text-orange-100"
+              >
+                Request Quote
               </Link>
             </article>
           );
         })}
       </div>
       <p className="mt-8 text-sm text-slate-300">Key Data: {KEY_DATA_LINE}</p>
-      <a href="#" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
-        Download Specification Sheet
-      </a>
+      <Link href="/contact" className="mt-4 inline-block text-sm text-link hover:text-linkHover">
+        Request Specification Sheet
+      </Link>
     </main>
   );
 }
