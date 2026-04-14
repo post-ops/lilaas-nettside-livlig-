@@ -2,16 +2,16 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-cyan-900/40 bg-field/35">
+    <footer className="border-t border-orange-500/35 bg-field/35">
       <div className="section-container grid gap-10 py-14 text-sm text-slate-400 md:grid-cols-4">
         <div>
-          <p className="text-base font-semibold text-white">Lilaas</p>
+          <p className="text-base font-semibold text-orange-50">Lilaas</p>
           <p className="mt-3">Control levers, integrated systems and engineering support for demanding maritime operations.</p>
-          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-cyan-300">Quality in command</p>
+          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-orange-300">Quality in command</p>
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-300">Solutions</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-orange-100/90">Solutions</p>
           <div className="mt-3 space-y-2">
             <Link href="/products" className="block hover:text-linkHover">Control Units</Link>
             <Link href="/thruster" className="block hover:text-linkHover">Systems</Link>
@@ -21,7 +21,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-300">Company</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-orange-100/90">Company</p>
           <div className="mt-3 space-y-2">
             <Link href="/about" className="block hover:text-linkHover">About Lilaas</Link>
             <Link href="/engineering" className="block hover:text-linkHover">Engineering</Link>
@@ -32,7 +32,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-300">Contact</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-orange-100/90">Contact</p>
           <p className="mt-3">
             Phone: <a href="tel:+4741633000" className="hover:text-linkHover">+47 416 33 000</a>
           </p>
@@ -44,7 +44,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="section-container border-t border-cyan-900/45 py-5 text-xs text-slate-500">
+      <div className="section-container border-t border-orange-500/25 py-5 text-xs text-slate-500">
         <p>© {new Date().getFullYear()} Lilaas. Marine control systems, engineering support and precision mechanics.</p>
       </div>
     </footer>
