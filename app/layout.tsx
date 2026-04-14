@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="party-mode">
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -46,6 +46,18 @@ export default function RootLayout({
           `}
         </Script>
         <AnalyticsPageview />
+        <div className="party-overlay" aria-hidden>
+          <div className="disco-ball">
+            <span className="disco-core" />
+          </div>
+          <span className="disco-ray disco-ray-a" />
+          <span className="disco-ray disco-ray-b" />
+          <span className="disco-ray disco-ray-c" />
+          <span className="disco-spark disco-spark-a" />
+          <span className="disco-spark disco-spark-b" />
+          <span className="disco-spark disco-spark-c" />
+          <span className="disco-spark disco-spark-d" />
+        </div>
         <SiteHeader />
         {children}
         <SiteFooter />

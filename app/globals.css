@@ -485,3 +485,273 @@ footer a:hover::after {
     transition: none !important;
   }
 }
+
+.party-overlay {
+  position: fixed;
+  top: 82px;
+  right: 24px;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  z-index: 60;
+  mix-blend-mode: screen;
+  filter: saturate(1.08);
+}
+
+.disco-ball {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  width: 88px;
+  height: 88px;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.08) 36%, transparent 48%),
+    conic-gradient(from 0deg, #fb923c, #fde047, #22d3ee, #a78bfa, #fb923c);
+  box-shadow:
+    0 0 0 3px rgba(251, 146, 60, 0.25),
+    0 0 42px rgba(249, 115, 22, 0.5),
+    0 0 80px rgba(34, 211, 238, 0.28);
+  animation: discoSpin 3.2s linear infinite, discoFloat 4.4s ease-in-out infinite;
+}
+
+.disco-core {
+  position: absolute;
+  inset: 18%;
+  border-radius: 9999px;
+  border: 1px dashed rgba(255, 255, 255, 0.55);
+  animation: discoSpin 2.1s linear infinite reverse;
+}
+
+.disco-ray {
+  position: absolute;
+  top: 64px;
+  right: 70px;
+  width: 160px;
+  height: 2px;
+  transform-origin: right center;
+  background: linear-gradient(90deg, rgba(251, 146, 60, 0.9), rgba(34, 211, 238, 0.24), transparent);
+  opacity: 0.85;
+}
+
+.disco-ray-a {
+  transform: rotate(20deg);
+  animation: rayPulse 2.2s ease-in-out infinite;
+}
+
+.disco-ray-b {
+  transform: rotate(-30deg);
+  animation: rayPulse 1.9s ease-in-out infinite reverse;
+}
+
+.disco-ray-c {
+  transform: rotate(70deg);
+  animation: rayPulse 2.5s ease-in-out infinite;
+}
+
+.disco-spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #f8fafc;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.95);
+}
+
+.disco-spark-a {
+  top: 6px;
+  right: 24px;
+  animation: sparkFly 3.6s ease-in-out infinite;
+}
+
+.disco-spark-b {
+  top: 44px;
+  right: 148px;
+  animation: sparkFly 3.1s ease-in-out infinite reverse;
+}
+
+.disco-spark-c {
+  top: 132px;
+  right: 112px;
+  animation: sparkFly 4.1s ease-in-out infinite;
+}
+
+.disco-spark-d {
+  top: 118px;
+  right: 12px;
+  animation: sparkFly 3.3s ease-in-out infinite reverse;
+}
+
+.party-mode main section {
+  animation: fadeRise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both, sectionPulse 5.6s ease-in-out infinite;
+}
+
+.party-mode .hero-title,
+.party-mode .section-title,
+.party-mode h3 {
+  animation: textBreathe 2.8s ease-in-out infinite, premiumGlow 6.8s ease-in-out infinite;
+}
+
+.party-mode .info-panel {
+  animation: cardFloat 2.6s ease-in-out infinite, panelGlow 3.8s ease-in-out infinite;
+}
+
+.party-mode .cta-primary,
+.party-mode .cta-secondary {
+  animation: ctaPulse 1.9s ease-in-out infinite, neonJitter 2.8s ease-in-out infinite;
+}
+
+.party-mode .premium-image-frame img {
+  animation: imagePulse 2.8s ease-in-out infinite, hueShift 9s ease-in-out infinite;
+}
+
+.party-mode .signal-marquee {
+  animation-duration: 7s;
+}
+
+.party-mode p,
+.party-mode li,
+.party-mode .eyebrow {
+  animation: textDrift 6.2s ease-in-out infinite;
+}
+
+.party-mode nav a {
+  animation: navWave 3.8s ease-in-out infinite;
+}
+
+.party-mode main section:nth-child(odd) {
+  animation-delay: 120ms, 0ms;
+}
+
+.party-mode main section:nth-child(even) {
+  animation-delay: 190ms, 0ms;
+}
+
+@keyframes discoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes discoFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+@keyframes rayPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.95;
+    filter: blur(1px);
+  }
+}
+
+@keyframes sparkFly {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.28);
+    opacity: 1;
+  }
+}
+
+@keyframes sectionPulse {
+  0%,
+  100% {
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    filter: saturate(1.2) brightness(1.05);
+  }
+}
+
+@keyframes panelGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 30px 48px -24px rgba(0, 0, 0, 0.68),
+      0 0 0 1px rgba(251, 146, 60, 0.26),
+      0 0 18px -10px rgba(249, 115, 22, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 36px 62px -20px rgba(0, 0, 0, 0.74),
+      0 0 0 1px rgba(253, 224, 71, 0.46),
+      0 0 28px -8px rgba(34, 211, 238, 0.55);
+  }
+}
+
+@keyframes premiumGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(251, 146, 60, 0.24);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(251, 146, 60, 0.24);
+  }
+}
+
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.12);
+  }
+  50% {
+    filter: hue-rotate(26deg) saturate(1.2);
+  }
+  100% {
+    filter: hue-rotate(0deg) saturate(1.12);
+  }
+}
+
+@keyframes neonJitter {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  60% {
+    transform: translateY(1px) scale(0.99);
+  }
+}
+
+@keyframes textDrift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes navWave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-1px);
+  }
+  70% {
+    transform: translateY(1px);
+  }
+}
