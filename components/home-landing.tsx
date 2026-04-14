@@ -39,11 +39,12 @@ export function HomeLanding() {
           </div>
           <div className="space-y-4">
             <div className="hero-circle-shell">
+              <div className="hero-circle-grid" />
               <div className="hero-circle-track" />
               <div className="hero-circle-track hero-circle-track-reverse" />
               <div className="hero-circle-image-wrap">
                 <div className="hero-circle-image">
-                  <PremiumImage src="/images/bridge-control.jpg" alt="Bridge control system" variant="hero" priority />
+                  <PremiumImage src="/images/bridge-control.jpg" alt="Bridge control system" variant="hero" priority className="hero-circle-media" />
                 </div>
               </div>
             </div>

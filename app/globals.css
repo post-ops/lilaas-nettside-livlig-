@@ -404,6 +404,22 @@ footer a:hover::after {
   margin-inline: auto;
 }
 
+.hero-circle-grid {
+  position: absolute;
+  inset: -7%;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0.55;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(203, 213, 225, 0.22) 0deg 2deg,
+    transparent 2deg 9deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 58%, #000 59%);
+  mask: radial-gradient(circle, transparent 58%, #000 59%);
+  animation: orbitSpin 18s linear infinite;
+}
+
 .hero-circle-track {
   position: absolute;
   inset: 0;
@@ -421,6 +437,13 @@ footer a:hover::after {
   inset: -10px;
   border-radius: 9999px;
   border: 1px dashed rgba(249, 115, 22, 0.5);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(249, 115, 22, 0.28) 0deg 1.2deg,
+    transparent 1.2deg 7deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 86%, #000 87%);
+  mask: radial-gradient(circle, transparent 86%, #000 87%);
 }
 
 .hero-circle-track::after {
@@ -446,6 +469,13 @@ footer a:hover::after {
 .hero-circle-track-reverse::before {
   inset: -8px;
   border-color: rgba(203, 213, 225, 0.3);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(203, 213, 225, 0.22) 0deg 1.1deg,
+    transparent 1.1deg 8deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 82%, #000 83%);
+  mask: radial-gradient(circle, transparent 82%, #000 83%);
 }
 
 .hero-circle-track-reverse::after {
@@ -474,12 +504,18 @@ footer a:hover::after {
 .hero-circle-image .premium-image-frame {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 9999px;
+  box-shadow: none;
 }
 
 .hero-circle-image .premium-image-frame img {
   object-fit: cover;
-  object-position: center;
+  object-position: 46% 54%;
+}
+
+.hero-circle-media img {
+  transform: scale(1.16);
 }
 
 @keyframes imagePulse {
