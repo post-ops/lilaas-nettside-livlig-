@@ -38,7 +38,7 @@ export function HomeLanding() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="hero-image-live hero-spin-frame relative overflow-hidden rounded-2xl border border-slate-500/30 bg-surface shadow-card">
+            <div className="hero-image-live relative overflow-hidden rounded-2xl border border-slate-500/30 bg-surface shadow-card">
               <div className="hero-orbit" />
               <div className="hero-orbit-fast" />
               <div className="hero-orbit-slow" />
