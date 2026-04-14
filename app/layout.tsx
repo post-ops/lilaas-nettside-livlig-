@@ -53,6 +53,8 @@ export default function RootLayout({
           <span className="disco-ray disco-ray-a" />
           <span className="disco-ray disco-ray-b" />
           <span className="disco-ray disco-ray-c" />
+          <span className="disco-ray disco-ray-d" />
+          <span className="disco-ray disco-ray-e" />
           <span className="disco-spark disco-spark-a" />
           <span className="disco-spark disco-spark-b" />
           <span className="disco-spark disco-spark-c" />
