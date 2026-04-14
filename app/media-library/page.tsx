@@ -1,12 +1,15 @@
 import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
+import Link from "next/link";
 import { PremiumImage } from "@/components/premium-image";
+import { products } from "@/lib/site-data";
 
 type MediaItem = {
   src: string;
   title: string;
   filename: string;
+  hash: string;
   verification: "Verified model (lilaas.no)" | "Reference / unverified model";
 };
 
@@ -54,6 +57,7 @@ async function loadMedia(): Promise<MediaItem[]> {
   ];
 
   const items: MediaItem[] = [];
+  const seenHashes = new Set<string>();
   const curatedByHash = new Map<string, { title: string; verification: MediaItem["verification"] }>();
 
   const curatedDirFiles = await readdir(folders[0].dir).catch(() => []);
@@ -77,8 +81,14 @@ async function loadMedia(): Promise<MediaItem[]> {
       const fullPath = join(folder.dir, file);
 
       let named = toTitle(file, index);
+      const hash = await fileSha1(fullPath);
+
+      if (seenHashes.has(hash)) {
+        continue;
+      }
+      seenHashes.add(hash);
+
       if (folder.prefix === "/images/imported/") {
-        const hash = await fileSha1(fullPath);
         const curatedMatch = curatedByHash.get(hash);
         if (curatedMatch) {
           named = curatedMatch;
@@ -89,6 +99,7 @@ async function loadMedia(): Promise<MediaItem[]> {
         src: `${folder.prefix}${file}`,
         filename: file,
         title: named.title,
+        hash,
         verification: named.verification
       });
     }
@@ -99,6 +110,7 @@ async function loadMedia(): Promise<MediaItem[]> {
 
 export default async function MediaLibraryPage() {
   const media = await loadMedia();
+  const featuredProducts = products.slice(0, 8);
 
   return (
     <main className="page-shell">
@@ -109,12 +121,30 @@ export default async function MediaLibraryPage() {
       </p>
       <p className="mt-2 text-sm text-slate-400">{media.length} images available</p>
 
+      <section className="section-divider mt-8 pt-8">
+        <h2 className="text-2xl font-semibold text-slate-100 md:text-3xl">Specific Products</h2>
+        <p className="mt-3 max-w-3xl text-sm text-slate-300">Concrete models shown separately for faster product lookup.</p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {featuredProducts.map((product) => (
+            <article key={product.slug} className="info-panel p-4">
+              <PremiumImage src={product.image} alt={product.name} variant="product" />
+              <p className="mt-3 text-sm font-semibold text-slate-100">{product.name}</p>
+              <p className="mt-1 text-xs text-slate-400">{product.category}</p>
+              <Link href={`/products#${product.slug}`} className="mt-3 inline-block text-sm text-link hover:text-linkHover">
+                Open product
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {media.map((item) => (
           <article key={item.src} className="info-panel p-4">
             <PremiumImage src={item.src} alt={item.title} variant="product" />
             <p className="mt-3 text-sm text-slate-300">{item.title}</p>
             <p className="mt-1 text-xs text-slate-400 break-all">{item.filename}</p>
+            <p className="mt-1 text-[11px] text-slate-500">{item.hash.slice(0, 10)}</p>
             <p className="mt-2 text-xs font-semibold text-accentSoft">{item.verification}</p>
           </article>
         ))}
