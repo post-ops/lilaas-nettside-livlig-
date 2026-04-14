@@ -64,6 +64,11 @@ main section {
   backdrop-filter: blur(0);
 }
 
+main :is(.rounded-lg, .rounded-xl, .rounded-2xl).border {
+  border-color: rgba(251, 146, 60, 0.38) !important;
+  box-shadow: inset 0 0 0 1px rgba(249, 115, 22, 0.14);
+}
+
 .page-shell {
   @apply section-container section-spacing;
   background: #3f556a;
