@@ -17,9 +17,15 @@ export function HomeLanding() {
             <p className="hero-lead">
               Lilaas develops maritime control solutions that combine mechanical precision, stable operator response and engineering support from concept to commissioning.
             </p>
-            <div className="info-panel-subtle">
-              <p className="text-xs uppercase tracking-[0.12em] text-slate-400">Scroll</p>
-              <p className="mt-1 text-sm text-slate-200">Built for propulsion, steering, thrusters and complex bridge integration.</p>
+            <div className="info-panel-subtle flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-xs uppercase tracking-[0.12em] text-slate-400">Scroll</p>
+                <p className="mt-1 text-sm text-slate-200">Built for propulsion, steering, thrusters and complex bridge integration.</p>
+              </div>
+              <span className="live-chip">
+                <span className="live-dot" />
+                Live
+              </span>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="cta-primary w-full text-center md:w-auto">
@@ -31,7 +37,10 @@ export function HomeLanding() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-2xl border border-cyan-500/25 bg-surface shadow-card">
+            <div className="hero-image-live relative overflow-hidden rounded-2xl border border-cyan-500/25 bg-surface shadow-card">
+              <div className="hero-orbit" />
+              <div className="hero-orbit-fast" />
+              <div className="hero-orbit-slow" />
               <PremiumImage src="/images/bridge-control.jpg" alt="Bridge control system" variant="hero" priority />
               <div className="border-t border-cyan-800/40 px-5 py-4 md:px-6 md:py-5">
                 <p className="text-xs text-slate-400">Bridge-installed control architecture for propulsion and maneuvering operations.</p>
@@ -71,6 +80,16 @@ export function HomeLanding() {
         <p className="mt-4 max-w-3xl text-slate-300">
           Unlock vessel performance with integrated solutions where every component works in harmony.
         </p>
+        <div className="mt-8 overflow-hidden border-y border-cyan-900/45 bg-field/65 py-3">
+          <div className="signal-marquee whitespace-nowrap text-sm uppercase tracking-[0.12em] text-cyan-100/90">
+            <span className="mx-8">Mission-critical vessel operations</span>
+            <span className="mx-8">Integrated control levers and systems</span>
+            <span className="mx-8">Engineering-led delivery and support</span>
+            <span className="mx-8">Mission-critical vessel operations</span>
+            <span className="mx-8">Integrated control levers and systems</span>
+            <span className="mx-8">Engineering-led delivery and support</span>
+          </div>
+        </div>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <article className="info-panel">
             <h3 className="text-xl font-semibold">Systems</h3>
