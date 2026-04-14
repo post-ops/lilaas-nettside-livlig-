@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-cyan-800/35">
-      <div className="section-container grid gap-10 py-12 text-sm text-slate-400 md:grid-cols-4">
+    <footer className="border-t border-cyan-900/40 bg-field/35">
+      <div className="section-container grid gap-10 py-14 text-sm text-slate-400 md:grid-cols-4">
         <div>
           <p className="text-base font-semibold text-white">Lilaas</p>
-          <p className="mt-3">Premium control systems and precision mechanics for marine and demanding industrial operations.</p>
-          <p className="mt-3 text-xs uppercase tracking-[0.14em] text-slate-500">Quality in command</p>
+          <p className="mt-3">Control levers, integrated systems and engineering support for demanding maritime operations.</p>
+          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-cyan-300">Quality in command</p>
         </div>
 
         <div>
@@ -16,7 +16,7 @@ export function SiteFooter() {
             <Link href="/products" className="block hover:text-linkHover">Control Units</Link>
             <Link href="/thruster" className="block hover:text-linkHover">Systems</Link>
             <Link href="/applications" className="block hover:text-linkHover">Applications</Link>
-            <Link href="/media-library" className="block hover:text-linkHover">Technical Library</Link>
+            <Link href="/media-library" className="block hover:text-linkHover">Media Library</Link>
           </div>
         </div>
 
@@ -24,9 +24,10 @@ export function SiteFooter() {
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-300">Company</p>
           <div className="mt-3 space-y-2">
             <Link href="/about" className="block hover:text-linkHover">About Lilaas</Link>
+            <Link href="/engineering" className="block hover:text-linkHover">Engineering</Link>
+            <Link href="/cases" className="block hover:text-linkHover">Case Studies</Link>
             <Link href="/contact" className="block hover:text-linkHover">Service and Support</Link>
-            <Link href="/contact" className="block hover:text-linkHover">Request Quote</Link>
-            <Link href="/contact" className="block hover:text-linkHover">Frequently Asked Questions</Link>
+            <Link href="/process" className="block hover:text-linkHover">How We Start</Link>
           </div>
         </div>
 
@@ -43,8 +44,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="section-container border-t border-cyan-900/35 py-4 text-xs text-slate-500">
-        <p>© {new Date().getFullYear()} Lilaas. Marine control systems and precision mechanics.</p>
+      <div className="section-container border-t border-cyan-900/45 py-5 text-xs text-slate-500">
+        <p>© {new Date().getFullYear()} Lilaas. Marine control systems, engineering support and precision mechanics.</p>
       </div>
     </footer>
   );

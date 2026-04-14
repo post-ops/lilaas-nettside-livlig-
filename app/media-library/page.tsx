@@ -101,17 +101,17 @@ export default async function MediaLibraryPage() {
   const media = await loadMedia();
 
   return (
-    <main className="section-container section-spacing">
+    <main className="page-shell">
       <p className="eyebrow">Media Library</p>
-      <h1 className="mt-4 text-4xl font-semibold md:text-6xl">All Uploaded Images</h1>
-      <p className="mt-4 max-w-3xl text-slate-300">
+      <h1 className="hero-title">All uploaded images and references</h1>
+      <p className="hero-lead">
         Complete image set provided for the project. Model labels are only marked as verified when directly matched against lilaas.no model pages.
       </p>
       <p className="mt-2 text-sm text-slate-400">{media.length} images available</p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {media.map((item) => (
-          <article key={item.src} className="rounded-xl border border-cyan-700/30 bg-surface p-4">
+          <article key={item.src} className="info-panel p-4">
             <PremiumImage src={item.src} alt={item.title} variant="product" />
             <p className="mt-3 text-sm text-slate-300">{item.title}</p>
             <p className="mt-1 text-xs text-slate-400 break-all">{item.filename}</p>

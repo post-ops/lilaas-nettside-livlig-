@@ -20,15 +20,15 @@ const cases = [
 
 export default function CasesPage() {
   return (
-    <main className="section-container section-spacing lively-section">
-      <Link href="/" className="text-sm text-slate-400 hover:text-orange-200">
+    <main className="page-shell lively-section">
+      <Link href="/" className="text-sm text-slate-400 hover:text-linkHover">
         ← Back to overview
       </Link>
       <p className="eyebrow">Case Studies</p>
-      <h1 className="mt-4 text-4xl font-semibold md:text-6xl">Real Delivery Programs</h1>
+      <h1 className="hero-title">Real delivery programs and measurable outcomes</h1>
       <div className="mt-10 grid gap-6 md:grid-cols-2 lively-grid">
         {cases.map((c) => (
-          <article key={c.title} className="rounded-xl border border-cyan-800/35 bg-surface p-6">
+          <article key={c.title} className="info-panel">
             <h2 className="text-2xl font-semibold">{c.title}</h2>
             <div className="mt-4">
               <PremiumImage src={c.image} alt={c.title} variant="product" />

@@ -11,27 +11,41 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-cyan-800/35 bg-background/90 backdrop-blur">
-      <div className="section-container flex min-h-16 items-center justify-between gap-6 py-3">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="text-base font-semibold tracking-wide text-white">
+    <header className="sticky top-0 z-50 border-b border-cyan-900/40 bg-background/95">
+      <div className="section-container flex min-h-20 items-center justify-between gap-6 py-3">
+        <div className="flex items-end gap-4">
+          <Link href="/" className="text-lg font-semibold tracking-[0.03em] text-white">
             Lilaas
           </Link>
-          <p className="hidden text-xs uppercase tracking-[0.14em] text-slate-400 md:block">Marine control systems</p>
+          <p className="hidden pb-0.5 text-[11px] uppercase tracking-[0.22em] text-slate-400 md:block">Quality in command</p>
         </div>
-        <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm text-slate-300">
+        <nav className="hidden items-center justify-end gap-x-6 text-[13px] text-slate-300 lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-accentSoft">
+            <Link key={item.href} href={item.href} className="uppercase tracking-[0.08em] transition hover:text-linkHover">
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="rounded-md bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accentHover"
-          >
-            Request Consultation
+          <Link href="/contact" className="cta-primary px-4 py-2 text-xs uppercase tracking-[0.1em]">
+            Request Quote
           </Link>
         </nav>
+        <details className="relative lg:hidden">
+          <summary className="cursor-pointer list-none rounded-md border border-cyan-800/50 px-3 py-2 text-xs uppercase tracking-[0.1em] text-slate-200">
+            Menu
+          </summary>
+          <div className="absolute right-0 mt-2 min-w-56 rounded-lg border border-cyan-800/60 bg-field/95 p-3 shadow-card">
+            <div className="flex flex-col gap-2 text-sm text-slate-200">
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-md px-2 py-1.5 transition hover:bg-surface/80 hover:text-linkHover">
+                  {item.label}
+                </Link>
+              ))}
+              <Link href="/contact" className="cta-primary mt-1 text-center text-xs uppercase tracking-[0.1em]">
+                Request Quote
+              </Link>
+            </div>
+          </div>
+        </details>
       </div>
     </header>
   );

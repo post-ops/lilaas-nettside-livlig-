@@ -30,24 +30,24 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const resultLabel = `${filteredProducts.length} product${filteredProducts.length === 1 ? "" : "s"} available`;
 
   return (
-    <main className="section-container section-spacing lively-section">
+    <main className="page-shell lively-section">
       <p className="eyebrow">Products</p>
-      <h1 className="mt-4 text-4xl font-semibold md:text-6xl">Premium control units for critical marine operations</h1>
-      <p className="mt-4 max-w-3xl text-slate-300">
+      <h1 className="hero-title">Control units built for maritime performance and reliability</h1>
+      <p className="hero-lead">
         Select a category to compare product families, then request engineering guidance for system fit, integration scope and delivery timeline.
       </p>
       <p className="mt-2 text-sm text-slate-400">
         Built for repeatable response, maintainability and long lifecycle performance across vessel classes.
       </p>
 
-      <div className="mt-10 flex flex-wrap gap-2">
+      <div className="mt-10 flex flex-wrap gap-2.5">
         {categories.map((category) => (
           <Link
             key={category}
             href={category === "All" ? "/products" : `/products?category=${encodeURIComponent(category)}`}
             className={`rounded-full border px-4 py-1.5 text-sm transition ${
               activeCategory === category
-                ? "border-accent bg-accentSoft text-orange-100"
+                ? "border-accent bg-accent/20 text-cyan-100"
                 : "border-cyan-700/30 bg-field/90 text-slate-300 hover:border-accentMid/55"
             }`}
           >
@@ -56,7 +56,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         ))}
       </div>
       <p className="mt-4 text-sm text-slate-400">{resultLabel}</p>
-      <div className="mt-6 rounded-xl border border-cyan-800/35 bg-field p-4 text-sm text-slate-300">
+      <div className="info-panel-subtle mt-6 text-sm text-slate-300">
         Need help narrowing options? Share vessel type and control scope, and we recommend the most relevant product path.
         <Link href="/contact" className="ml-1 font-medium text-link hover:text-linkHover">
           Talk to engineering.
@@ -70,7 +70,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             <article
               key={product.name}
               id={product.slug}
-              className="scroll-mt-28 rounded-xl border border-cyan-700/30 bg-surface p-5 transition hover:border-accentMid/55"
+            className="info-panel scroll-mt-28 p-5 transition hover:border-accentMid/55"
             >
               <PremiumImage src={product.image} alt={product.name} variant="product" />
               <h2 className="mt-4 text-xl font-semibold">{product.name}</h2>
@@ -95,7 +95,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
               </Link>
               <Link
                 href="/contact"
-                className="mt-3 inline-block rounded-md border border-accentMid/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-accentSoft hover:border-accent hover:text-orange-100"
+                className="mt-3 inline-block rounded-md border border-accentMid/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-accentSoft hover:border-accent hover:text-cyan-100"
               >
                 Request Engineering Quote
               </Link>

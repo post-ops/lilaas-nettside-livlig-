@@ -10,15 +10,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(
-      circle at 18% 12%,
-      #1a5f7a 0%,
-      #0f4a63 22%,
-      #0a3045 48%,
-      #061e2d 78%,
-      #041520 100%
-    );
-  color: #f0fafc;
+  background: #061726;
+  color: #edf4f9;
   font-family: Inter, Segoe UI, system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -31,15 +24,15 @@ a {
 }
 
 .section-container {
-  @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  @apply mx-auto w-full max-w-[1220px] px-6 md:px-10;
 }
 
 .section-spacing {
-  @apply py-20 md:py-28;
+  @apply py-14 md:py-20;
 }
 
 .eyebrow {
-  @apply text-xs uppercase tracking-[0.2em] text-orange-300;
+  @apply text-[11px] uppercase tracking-[0.24em] text-cyan-300;
 }
 
 h1,
@@ -54,25 +47,60 @@ main section {
 
 .rounded-xl,
 .rounded-2xl {
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(0);
+}
+
+.page-shell {
+  @apply section-container section-spacing;
+}
+
+.hero-title {
+  @apply mt-4 max-w-5xl text-4xl font-semibold leading-[1.08] md:text-6xl;
+}
+
+.hero-lead {
+  @apply mt-5 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg;
+}
+
+.section-title {
+  @apply mt-4 text-3xl font-semibold leading-[1.12] md:text-5xl;
+}
+
+.info-panel {
+  @apply rounded-lg border border-cyan-800/35 bg-surface p-6;
+}
+
+.info-panel-subtle {
+  @apply rounded-lg border border-cyan-900/45 bg-field/70 p-5;
+}
+
+.cta-primary {
+  @apply inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accentHover;
+  letter-spacing: 0.01em;
+}
+
+.cta-secondary {
+  @apply inline-block rounded-md border border-cyan-700/35 px-5 py-3 text-sm font-medium text-slate-300 hover:border-accentMid/55;
+}
+
+.section-divider {
+  @apply border-t border-cyan-900/45;
 }
 
 a {
   transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
-/* Industrial photo treatment: depth, edge definition, no “flat web” look */
 .premium-image-frame {
   @apply rounded-xl bg-field;
   box-shadow:
-    0 28px 56px -14px rgba(2, 20, 32, 0.55),
-    inset 0 0 0 1px rgba(56, 189, 248, 0.12),
-    inset 0 -1px 0 0 rgba(249, 115, 22, 0.12);
+    0 20px 40px -18px rgba(3, 16, 28, 0.65),
+    inset 0 0 0 1px rgba(125, 211, 252, 0.08);
 }
 
 .premium-image-frame img {
   @apply select-none;
-  filter: saturate(1.04) contrast(1.04);
+  filter: saturate(1.02) contrast(1.02);
 }
 
 @keyframes slideUp {
@@ -98,12 +126,12 @@ a {
 }
 
 .lively-section {
-  animation: fadeRise 680ms ease both;
+  animation: none;
 }
 
 .lively-grid > * {
-  animation: fadeRise 560ms ease both;
-  animation-delay: var(--delay, 0ms);
+  animation: none;
+  animation-delay: 0ms;
 }
 
 @keyframes ambientDrift {
@@ -129,17 +157,47 @@ a {
 .hero-ambient::before {
   content: "";
   position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 70%;
+  inset: -18% -12% auto -12%;
+  height: 62%;
   background:
-    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.24), transparent 48%),
-    radial-gradient(circle at 80% 40%, rgba(249, 115, 22, 0.22), transparent 46%);
+    radial-gradient(circle at 20% 24%, rgba(56, 189, 248, 0.12), transparent 48%),
+    radial-gradient(circle at 80% 40%, rgba(59, 130, 246, 0.1), transparent 46%);
   z-index: -1;
-  filter: blur(24px);
-  animation: ambientDrift 10s ease-in-out infinite;
+  filter: blur(26px);
+  animation: none;
   pointer-events: none;
 }
 
 .band-surface {
-  background: linear-gradient(180deg, rgba(5, 22, 34, 0.24) 0%, rgba(9, 33, 49, 0.38) 100%);
+  background: linear-gradient(180deg, rgba(7, 22, 35, 0.22) 0%, rgba(8, 27, 43, 0.32) 100%);
+}
+
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes signalFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signal-marquee {
+  display: inline-block;
+  min-width: 200%;
+  animation: none;
+}
+
+.signal-fade {
+  animation: signalFade 340ms ease;
 }

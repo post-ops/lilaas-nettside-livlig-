@@ -13,7 +13,7 @@ const QUALITY = {
 } as const;
 
 const ASPECT = {
-  hero: "aspect-[4/3] md:aspect-[16/10]",
+  hero: "aspect-[16/11] md:aspect-[16/9]",
   product: "aspect-[16/10]",
   section: "aspect-[16/10]"
 } as const;

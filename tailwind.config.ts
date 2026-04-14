@@ -8,20 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#061e2d",
-        surface: "#0f3d52",
-        field: "#0a2c3f",
-        accent: "#f97316",
-        accentSoft: "#fdba74",
-        accentMid: "#fb923c",
-        accentDeep: "#c2410c",
-        accentHover: "#ea580c",
-        link: "#7dd3fc",
-        linkHover: "#fdba74",
-        muted: "#9ec9dc"
+        background: "#061726",
+        surface: "#0b2235",
+        field: "#081b2c",
+        accent: "#2aa9e0",
+        accentSoft: "#9fdaf5",
+        accentMid: "#66c2eb",
+        accentDeep: "#0369a1",
+        accentHover: "#158fc6",
+        link: "#8fd4f4",
+        linkHover: "#d0ecfa",
+        muted: "#9eb6c9"
       },
       boxShadow: {
-        card: "0 22px 48px rgba(4, 30, 45, 0.45), 0 0 0 1px rgba(56, 189, 248, 0.06)"
+        card: "0 20px 42px rgba(2, 15, 26, 0.52), 0 0 0 1px rgba(143, 212, 244, 0.08)"
       }
     }
   },
