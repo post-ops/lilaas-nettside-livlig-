@@ -81,6 +81,7 @@ async function loadMedia(): Promise<MediaItem[]> {
 
   const items: MediaItem[] = [];
   const seenHashes = new Set<string>();
+  const seenTitles = new Set<string>();
   const curatedByHash = new Map<string, { title: string; verification: MediaItem["verification"] }>();
 
   const curatedDirFiles = await readdir(folders[0].dir).catch(() => []);
@@ -118,6 +119,14 @@ async function loadMedia(): Promise<MediaItem[]> {
         }
       }
 
+      const normalizedTitle = named.title.trim().toLowerCase();
+      if (normalizedTitle && seenTitles.has(normalizedTitle)) {
+        continue;
+      }
+      if (normalizedTitle) {
+        seenTitles.add(normalizedTitle);
+      }
+
       items.push({
         src: `${folder.prefix}${file}`,
         filename: file,
@@ -133,7 +142,7 @@ async function loadMedia(): Promise<MediaItem[]> {
 
 export default async function MediaLibraryPage() {
   const media = (await loadMedia()).filter(isRelevantLibraryItem);
-  const featuredProducts = products.slice(0, 8);
+  const featuredProducts = products.filter((product, index, all) => all.findIndex((p) => p.image === product.image) === index).slice(0, 8);
 
   return (
     <main className="page-shell">
