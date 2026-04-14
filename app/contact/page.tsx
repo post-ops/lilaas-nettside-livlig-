@@ -33,7 +33,7 @@ export default function ContactPage() {
             </a>
           </p>
           <p className="mt-3 text-sm text-slate-400">Phone hours: Mon-Fri 08:00-16:00 CET</p>
-          <div className="mt-5 rounded-lg border border-cyan-800/40 bg-field/70 p-4 text-sm text-slate-300">
+          <div className="mt-5 rounded-lg border border-slate-600/40 bg-field/70 p-4 text-sm text-slate-300">
             <p className="font-medium text-white">To speed up your request, include:</p>
             <ul className="mt-2 space-y-1">
               <li>- Vessel type and operating profile</li>

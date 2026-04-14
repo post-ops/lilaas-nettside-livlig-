@@ -10,7 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #0a2236;
+  background: #111827;
   color: #f5f9ff;
   font-family: Inter, Segoe UI, system-ui, -apple-system, sans-serif;
   line-height: 1.6;
@@ -30,9 +30,9 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.2), transparent 40%),
-    radial-gradient(circle at 78% 24%, rgba(56, 189, 248, 0.16), transparent 38%),
-    radial-gradient(circle at 60% 80%, rgba(253, 186, 116, 0.14), transparent 46%);
+    radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.22), transparent 40%),
+    radial-gradient(circle at 78% 24%, rgba(71, 85, 105, 0.2), transparent 38%),
+    radial-gradient(circle at 60% 80%, rgba(203, 213, 225, 0.14), transparent 46%);
   animation: ambientDrift 18s ease-in-out infinite;
 }
 
@@ -45,7 +45,7 @@ body::before {
 }
 
 .eyebrow {
-  @apply text-[11px] uppercase tracking-[0.24em] text-orange-300;
+  @apply text-[11px] uppercase tracking-[0.24em] text-slate-300;
 }
 
 h1,
@@ -81,7 +81,7 @@ main section {
 }
 
 .info-panel {
-  @apply rounded-lg border border-orange-500/35 bg-surface p-6;
+  @apply rounded-lg border border-slate-500/35 bg-surface p-6;
   transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 280ms ease, box-shadow 280ms ease;
   animation: cardFloat 4.2s ease-in-out infinite;
   position: relative;
@@ -91,10 +91,10 @@ main section {
 
 .info-panel:hover {
   transform: translateY(-9px) scale(1.02) rotateX(2deg) rotateY(-2deg);
-  border-color: rgba(251, 146, 60, 0.72);
+  border-color: rgba(148, 163, 184, 0.72);
   box-shadow:
     0 30px 48px -24px rgba(0, 0, 0, 0.78),
-    0 0 0 1px rgba(253, 186, 116, 0.3);
+    0 0 0 1px rgba(148, 163, 184, 0.3);
 }
 
 .info-panel::before {
@@ -102,7 +102,7 @@ main section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(120deg, rgba(249, 115, 22, 0.11), transparent 35%, rgba(159, 221, 255, 0.09) 78%, transparent);
+  background: linear-gradient(120deg, rgba(148, 163, 184, 0.14), transparent 35%, rgba(203, 213, 225, 0.1) 78%, transparent);
   opacity: 0.55;
   animation: glowSweep 3.8s ease-in-out infinite;
 }
@@ -113,13 +113,13 @@ main section {
   inset: -35%;
   pointer-events: none;
   border-radius: 999px;
-  border: 1px dashed rgba(251, 146, 60, 0.2);
+  border: 1px dashed rgba(148, 163, 184, 0.2);
   opacity: 0.45;
   animation: orbitSpin 9s linear infinite;
 }
 
 .info-panel-subtle {
-  @apply rounded-lg border border-orange-500/30 bg-field/70 p-5;
+  @apply rounded-lg border border-slate-500/30 bg-field/70 p-5;
 }
 
 .cta-primary {
@@ -129,12 +129,12 @@ main section {
 }
 
 .cta-secondary {
-  @apply inline-block rounded-md border border-orange-400/45 px-5 py-3 text-sm font-medium text-orange-100 hover:border-accentMid/85;
+  @apply inline-block rounded-md border border-slate-400/45 px-5 py-3 text-sm font-medium text-slate-100 hover:border-accentMid/85;
   animation: ctaPulseSoft 3.4s ease-in-out infinite;
 }
 
 .section-divider {
-  @apply border-t border-orange-500/30;
+  @apply border-t border-slate-500/30;
 }
 
 a {
@@ -154,7 +154,7 @@ footer a::after {
   bottom: -2px;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.95), transparent);
+  background: linear-gradient(90deg, transparent, rgba(203, 213, 225, 0.95), transparent);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 240ms ease;
@@ -169,8 +169,8 @@ footer a:hover::after {
   @apply rounded-xl bg-field;
   box-shadow:
     0 22px 42px -16px rgba(2, 14, 24, 0.6),
-    inset 0 0 0 1px rgba(253, 186, 116, 0.16),
-    inset 0 -1px 0 rgba(249, 115, 22, 0.22);
+    inset 0 0 0 1px rgba(148, 163, 184, 0.2),
+    inset 0 -1px 0 rgba(100, 116, 139, 0.28);
   transform-style: preserve-3d;
   perspective: 1200px;
   transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms ease;
@@ -191,8 +191,8 @@ footer a:hover::after {
   transform: translateY(-7px) rotateX(2deg) rotateY(-2deg);
   box-shadow:
     0 34px 56px -24px rgba(2, 14, 24, 0.76),
-    inset 0 0 0 1px rgba(253, 186, 116, 0.3),
-    inset 0 -1px 0 rgba(249, 115, 22, 0.3);
+    inset 0 0 0 1px rgba(148, 163, 184, 0.3),
+    inset 0 -1px 0 rgba(100, 116, 139, 0.34);
 }
 
 @keyframes slideUp {
@@ -231,46 +231,46 @@ footer a:hover::after {
 
 @keyframes ctaPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.55);
+    box-shadow: 0 0 0 0 rgba(148, 163, 184, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 16px rgba(148, 163, 184, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 0 rgba(148, 163, 184, 0);
   }
 }
 
 @keyframes ctaPulseSoft {
   0% {
-    box-shadow: 0 0 0 0 rgba(253, 186, 116, 0.35);
+    box-shadow: 0 0 0 0 rgba(148, 163, 184, 0.35);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(253, 186, 116, 0);
+    box-shadow: 0 0 0 14px rgba(148, 163, 184, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(253, 186, 116, 0);
+    box-shadow: 0 0 0 0 rgba(148, 163, 184, 0);
   }
 }
 
 @keyframes textBreathe {
   0% {
-    text-shadow: 0 0 0 rgba(159, 218, 245, 0);
+    text-shadow: 0 0 0 rgba(148, 163, 184, 0);
   }
   50% {
-    text-shadow: 0 0 18px rgba(159, 218, 245, 0.16);
+    text-shadow: 0 0 18px rgba(148, 163, 184, 0.16);
   }
   100% {
-    text-shadow: 0 0 0 rgba(159, 218, 245, 0);
+    text-shadow: 0 0 0 rgba(148, 163, 184, 0);
   }
 }
 
 .lively-section {
-  animation: fadeRise 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: fadeRise 580ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .lively-grid > * {
-  animation: fadeRise 760ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: fadeRise 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: var(--delay, 0ms);
 }
 
@@ -300,8 +300,8 @@ footer a:hover::after {
   inset: -18% -12% auto -12%;
   height: 62%;
   background:
-    radial-gradient(circle at 20% 24%, rgba(249, 115, 22, 0.2), transparent 48%),
-    radial-gradient(circle at 80% 40%, rgba(56, 189, 248, 0.16), transparent 46%);
+    radial-gradient(circle at 20% 24%, rgba(148, 163, 184, 0.22), transparent 48%),
+    radial-gradient(circle at 80% 40%, rgba(100, 116, 139, 0.18), transparent 46%);
   z-index: -1;
   filter: blur(26px);
   animation: ambientDrift 10s ease-in-out infinite;
@@ -309,7 +309,7 @@ footer a:hover::after {
 }
 
 .band-surface {
-  background: linear-gradient(180deg, rgba(15, 39, 58, 0.3) 0%, rgba(18, 46, 68, 0.42) 100%);
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.26) 0%, rgba(30, 41, 59, 0.42) 100%);
 }
 
 @keyframes marqueeLeft {
@@ -355,7 +355,7 @@ footer a:hover::after {
   position: absolute;
   inset: -14px;
   border-radius: 1rem;
-  border: 1px dashed rgba(251, 146, 60, 0.45);
+  border: 1px dashed rgba(148, 163, 184, 0.45);
   pointer-events: none;
   animation: orbitSpin 18s linear infinite;
 }
@@ -369,15 +369,15 @@ footer a:hover::after {
   height: 10px;
   margin-left: -5px;
   border-radius: 9999px;
-  background: rgba(251, 146, 60, 0.98);
-  box-shadow: 0 0 20px rgba(251, 146, 60, 0.86);
+  background: rgba(203, 213, 225, 0.98);
+  box-shadow: 0 0 20px rgba(203, 213, 225, 0.86);
 }
 
 .hero-orbit-fast {
   position: absolute;
   inset: -28px;
   border-radius: 1.25rem;
-  border: 1px dashed rgba(159, 221, 255, 0.34);
+  border: 1px dashed rgba(148, 163, 184, 0.3);
   pointer-events: none;
   animation: orbitSpin 10s linear infinite reverse;
 }
@@ -386,7 +386,7 @@ footer a:hover::after {
   position: absolute;
   inset: -44px;
   border-radius: 1.5rem;
-  border: 1px solid rgba(253, 186, 116, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.2);
   pointer-events: none;
   animation: orbitSpin 28s linear infinite;
 }
@@ -428,22 +428,38 @@ footer a:hover::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(253, 186, 116, 0.24) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 40%, rgba(203, 213, 225, 0.24) 50%, transparent 60%);
   pointer-events: none;
   animation: glowSweep 3.4s ease-in-out infinite;
 }
 
 .live-chip {
-  @apply inline-flex items-center gap-2 rounded-full border border-orange-500/45 bg-field/70 px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-orange-100;
+  @apply inline-flex items-center gap-2 rounded-full border border-slate-500/45 bg-field/70 px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-slate-100;
 }
 
 .live-dot {
   width: 8px;
   height: 8px;
   border-radius: 9999px;
-  background: #fb923c;
-  box-shadow: 0 0 14px rgba(251, 146, 60, 0.95);
+  background: #cbd5e1;
+  box-shadow: 0 0 14px rgba(203, 213, 225, 0.95);
   animation: signalFade 0.45s ease-out infinite alternate;
+}
+
+@keyframes menuDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.menu-panel {
+  transform-origin: top right;
+  animation: menuDrop 220ms ease both;
 }
 
 @media (prefers-reduced-motion: reduce) {

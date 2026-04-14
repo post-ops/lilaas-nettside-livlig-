@@ -27,6 +27,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const params = await searchParams;
   const activeCategory = resolveCategory(params.category);
   const filteredProducts = products.filter((product) => activeCategory === "All" || product.category === activeCategory);
+  const visibleCategories = activeCategory === "All" ? categories.filter((c) => c !== "All") : [activeCategory];
   const resultLabel = `${filteredProducts.length} product${filteredProducts.length === 1 ? "" : "s"} available`;
 
   return (
@@ -47,8 +48,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             href={category === "All" ? "/products" : `/products?category=${encodeURIComponent(category)}`}
             className={`rounded-full border px-4 py-1.5 text-sm transition ${
               activeCategory === category
-                ? "border-accent bg-accent/25 text-orange-50 shadow-[0_0_18px_rgba(249,115,22,0.35)]"
-                : "border-orange-400/30 bg-field/90 text-slate-200 hover:border-accentMid/80"
+                ? "border-accent bg-accent/25 text-slate-100 shadow-[0_0_16px_rgba(148,163,184,0.35)]"
+                : "border-slate-500/35 bg-field/90 text-slate-200 hover:border-accentMid/80"
             }`}
           >
             {category}
@@ -63,43 +64,54 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         </Link>
       </div>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-2 lively-grid">
-        {filteredProducts.map((product) => {
-          const { href, label } = productExploreLink(product);
+      <div className="mt-10 space-y-10">
+        {visibleCategories.map((category) => {
+          const categoryProducts = filteredProducts.filter((product) => product.category === category);
+          if (!categoryProducts.length) return null;
+
           return (
-            <article
-              key={product.name}
-              id={product.slug}
-            className="info-panel scroll-mt-28 p-5 transition hover:border-accentMid/55"
-            >
-              <PremiumImage src={product.image} alt={product.name} variant="product" />
-              <h2 className="mt-4 text-xl font-semibold">{product.name}</h2>
-              <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
-              <p className="mt-2 text-sm text-slate-400">Used in {product.usedIn}</p>
-              <ul className="mt-3 space-y-1 text-sm text-slate-300">
-                {product.specs.map((spec) => (
-                  <li key={spec}>{spec}</li>
-                ))}
-              </ul>
-              <details className="mt-4 rounded-md border border-orange-400/35 bg-field/70 p-3 text-sm text-slate-200">
-                <summary className="cursor-pointer font-medium text-accentSoft">Read Technical Notes</summary>
-                <p className="mt-2 text-slate-300">
-                  {product.name} is configured for {product.usedIn.toLowerCase()}
-                </p>
-                <p className="mt-1 text-slate-400">
-                  Contact engineering to receive model-specific electrical options, panel cut-out details, and integration support.
-                </p>
-              </details>
-              <Link href={href} className="mt-4 inline-block text-sm font-medium text-link hover:text-linkHover">
-                {label}
-              </Link>
-              <Link
-                href="/contact"
-                className="mt-3 inline-block rounded-md border border-accentMid/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-accentSoft hover:border-accent hover:text-cyan-100"
-              >
-                Request Engineering Quote
-              </Link>
-            </article>
+            <section key={category} className="section-divider pt-8">
+              <div className="mb-5 flex items-end justify-between gap-3">
+                <h2 className="text-2xl font-semibold text-slate-100 md:text-3xl">{category}</h2>
+                <p className="text-sm text-slate-400">{categoryProducts.length} products</p>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2 lively-grid">
+                {categoryProducts.map((product) => {
+                  const { href, label } = productExploreLink(product);
+                  return (
+                    <article key={product.name} id={product.slug} className="info-panel scroll-mt-28 p-5 transition hover:border-accentMid/55">
+                      <PremiumImage src={product.image} alt={product.name} variant="product" />
+                      <h3 className="mt-4 text-xl font-semibold">{product.name}</h3>
+                      <p className="mt-3 text-sm text-slate-300">{product.whatItIs}</p>
+                      <p className="mt-2 text-sm text-slate-400">Used in {product.usedIn}</p>
+                      <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                        {product.specs.map((spec) => (
+                          <li key={spec}>{spec}</li>
+                        ))}
+                      </ul>
+                      <details className="mt-4 rounded-md border border-slate-500/35 bg-field/70 p-3 text-sm text-slate-200">
+                        <summary className="cursor-pointer font-medium text-accentSoft">Read Technical Notes</summary>
+                        <p className="mt-2 text-slate-300">
+                          {product.name} is configured for {product.usedIn.toLowerCase()}
+                        </p>
+                        <p className="mt-1 text-slate-400">
+                          Contact engineering to receive model-specific electrical options, panel cut-out details, and integration support.
+                        </p>
+                      </details>
+                      <Link href={href} className="mt-4 inline-block text-sm font-medium text-link hover:text-linkHover">
+                        {label}
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="mt-3 inline-block rounded-md border border-accentMid/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-accentSoft hover:border-accent hover:text-slate-100"
+                      >
+                        Request Engineering Quote
+                      </Link>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
           );
         })}
       </div>

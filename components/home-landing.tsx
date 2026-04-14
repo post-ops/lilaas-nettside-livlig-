@@ -37,17 +37,17 @@ export function HomeLanding() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="hero-image-live relative overflow-hidden rounded-2xl border border-cyan-500/25 bg-surface shadow-card">
+            <div className="hero-image-live relative overflow-hidden rounded-2xl border border-slate-500/30 bg-surface shadow-card">
               <div className="hero-orbit" />
               <div className="hero-orbit-fast" />
               <div className="hero-orbit-slow" />
               <PremiumImage src="/images/bridge-control.jpg" alt="Bridge control system" variant="hero" priority />
-              <div className="border-t border-cyan-800/40 px-5 py-4 md:px-6 md:py-5">
+              <div className="border-t border-slate-600/40 px-5 py-4 md:px-6 md:py-5">
                 <p className="text-xs text-slate-400">Bridge-installed control architecture for propulsion and maneuvering operations.</p>
                 <p className="mt-1 text-xs text-slate-400">Engineered for uptime in demanding vessel programs.</p>
               </div>
             </div>
-            <div className="rounded-xl border border-cyan-700/35 bg-field/70 p-4">
+            <div className="rounded-xl border border-slate-600/35 bg-field/70 p-4">
               <p className="text-xs uppercase tracking-[0.12em] text-slate-400">Trust baseline</p>
               <p className="mt-2 text-sm text-slate-300">ISO 9001 quality mindset • DNV-aligned engineering practice • Global marine programs</p>
             </div>
@@ -80,8 +80,8 @@ export function HomeLanding() {
         <p className="mt-4 max-w-3xl text-slate-300">
           Unlock vessel performance with integrated solutions where every component works in harmony.
         </p>
-        <div className="mt-8 overflow-hidden border-y border-cyan-900/45 bg-field/65 py-3">
-          <div className="signal-marquee whitespace-nowrap text-sm uppercase tracking-[0.12em] text-cyan-100/90">
+        <div className="mt-8 overflow-hidden border-y border-slate-700/45 bg-field/65 py-3">
+          <div className="signal-marquee whitespace-nowrap text-sm uppercase tracking-[0.12em] text-slate-100/90">
             <span className="mx-8">Mission-critical vessel operations</span>
             <span className="mx-8">Integrated control levers and systems</span>
             <span className="mx-8">Engineering-led delivery and support</span>

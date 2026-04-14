@@ -45,7 +45,7 @@ export function ContactForm() {
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
-        className="w-full rounded-md border border-cyan-700/30 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
+        className="w-full rounded-md border border-slate-500/35 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
       />
       <input
         type="email"
@@ -53,14 +53,14 @@ export function ContactForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="w-full rounded-md border border-cyan-700/30 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
+        className="w-full rounded-md border border-slate-500/35 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
       />
       <input
         type="text"
         placeholder="Company"
         value={company}
         onChange={(e) => setCompany(e.target.value)}
-        className="w-full rounded-md border border-cyan-700/30 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
+        className="w-full rounded-md border border-slate-500/35 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
       />
       <textarea
         placeholder="Message"
@@ -68,7 +68,7 @@ export function ContactForm() {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         required
-        className="w-full rounded-md border border-cyan-700/30 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
+        className="w-full rounded-md border border-slate-500/35 bg-field/90 px-4 py-3 text-sm outline-none transition focus:border-accent"
       />
       <button
         type="submit"
