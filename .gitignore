@@ -17,3 +17,6 @@ pnpm-debug.log*
 
 .DS_Store
 Thumbs.db
+
+# Cursor workspaceStorage image exports (auto-generated duplicates)
+public/images/library/c__Users_Tobia_AppData_Roaming_Cursor_User_workspaceStorage_*
