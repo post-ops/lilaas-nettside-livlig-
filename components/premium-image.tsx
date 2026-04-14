@@ -38,6 +38,10 @@ type PremiumImageProps = {
 export function PremiumImage({ src, alt, variant, priority, className = "" }: PremiumImageProps) {
   return (
     <div className={`premium-image-frame relative w-full overflow-hidden ${ASPECT[variant]} ${className}`}>
+      <span className="media-orbit media-orbit-outer" aria-hidden />
+      <span className="media-orbit media-orbit-inner" aria-hidden />
+      <span className="media-orbit-dot media-orbit-dot-a" aria-hidden />
+      <span className="media-orbit-dot media-orbit-dot-b" aria-hidden />
       <Image
         src={src}
         alt={alt}
