@@ -6,6 +6,7 @@ import { products } from "@/lib/site-data";
 
 export function HomeLanding() {
   const featuredUnits = products.filter((item) => item.category === "Control Levers").slice(0, 2);
+  const productCategories = ["Control Levers", "Joysticks", "Thruster Control", "Precision Mechanics"] as const;
 
   return (
     <main className="overflow-x-hidden">
@@ -37,7 +38,7 @@ export function HomeLanding() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="hero-image-live relative overflow-hidden rounded-2xl border border-slate-500/30 bg-surface shadow-card">
+            <div className="hero-image-live hero-spin-frame relative overflow-hidden rounded-2xl border border-slate-500/30 bg-surface shadow-card">
               <div className="hero-orbit" />
               <div className="hero-orbit-fast" />
               <div className="hero-orbit-slow" />
@@ -112,6 +113,25 @@ export function HomeLanding() {
               Read more
             </Link>
           </article>
+        </div>
+      </section>
+
+      <section className="section-container section-spacing section-divider lively-section">
+        <p className="eyebrow">Products</p>
+        <h2 className="section-title">Specific product categories and models</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {productCategories.map((category) => {
+            const count = products.filter((p) => p.category === category).length;
+            return (
+              <article key={category} className="info-panel p-4">
+                <p className="text-sm font-semibold text-slate-100">{category}</p>
+                <p className="mt-2 text-sm text-slate-400">{count} products</p>
+                <Link href={`/products?category=${encodeURIComponent(category)}`} className="mt-3 inline-block text-sm text-link hover:text-linkHover">
+                  View models
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </section>
 

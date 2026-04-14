@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const navItems = [
+  { href: "/", label: "Home" },
   { href: "/products", label: "Control Units" },
   { href: "/thruster", label: "Systems" },
   { href: "/applications", label: "Applications" },
@@ -14,7 +15,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-orange-500/40 bg-background/95">
       <div className="section-container flex min-h-20 items-center justify-between gap-6 py-3">
         <div className="flex items-end gap-4">
-          <Link href="/" className="text-lg font-semibold tracking-[0.03em] text-slate-100">
+          <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-[0.03em] text-slate-100">
+            <span className="header-spin-ring" aria-hidden />
             Lilaas
           </Link>
           <p className="hidden pb-0.5 text-[11px] uppercase tracking-[0.22em] text-slate-300/90 md:block">Quality in command</p>

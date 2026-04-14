@@ -13,6 +13,29 @@ type MediaItem = {
   verification: "Verified model (lilaas.no)" | "Reference / unverified model";
 };
 
+function isRelevantLibraryItem(item: MediaItem): boolean {
+  const text = `${item.title} ${item.filename}`.toLowerCase();
+  const productLike =
+    text.includes("lf") ||
+    text.includes("control") ||
+    text.includes("lever") ||
+    text.includes("joystick") ||
+    text.includes("thruster") ||
+    text.includes("steering") ||
+    text.includes("console") ||
+    text.includes("product family") ||
+    text.includes("precision mechanics");
+
+  const irrelevant =
+    text.includes("img-") ||
+    text.includes("lilaas image ") ||
+    text.includes("screenshot") ||
+    text.includes("hospital") ||
+    text.includes("medical");
+
+  return productLike && !irrelevant;
+}
+
 function titleFromCuratedName(filename: string): { title: string; verification: MediaItem["verification"] } {
   const name = filename.toLowerCase();
   if (name.includes("lf80")) return { title: "LF80 Rudder Control", verification: "Verified model (lilaas.no)" };
@@ -109,7 +132,7 @@ async function loadMedia(): Promise<MediaItem[]> {
 }
 
 export default async function MediaLibraryPage() {
-  const media = await loadMedia();
+  const media = (await loadMedia()).filter(isRelevantLibraryItem);
   const featuredProducts = products.slice(0, 8);
 
   return (
