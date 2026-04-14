@@ -57,6 +57,26 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         ))}
       </div>
       <p className="mt-4 text-sm text-slate-400">{resultLabel}</p>
+      <section className="section-divider mt-8 pt-8">
+        <h2 className="text-2xl font-semibold text-slate-100 md:text-3xl">Product Categories</h2>
+        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {categories.filter((c) => c !== "All").map((category) => {
+            const count = products.filter((p) => p.category === category).length;
+            return (
+              <article key={`category-${category}`} className="info-panel p-4">
+                <p className="text-sm uppercase tracking-[0.1em] text-slate-400">{category}</p>
+                <p className="mt-2 text-sm text-slate-300">{count} products</p>
+                <Link
+                  href={`/products?category=${encodeURIComponent(category)}`}
+                  className="mt-3 inline-block text-sm font-medium text-link hover:text-linkHover"
+                >
+                  Open category
+                </Link>
+              </article>
+            );
+          })}
+        </div>
+      </section>
       <div className="info-panel-subtle mt-6 text-sm text-slate-300">
         Need help narrowing options? Share vessel type and control scope, and we recommend the most relevant product path.
         <Link href="/contact" className="ml-1 font-medium text-link hover:text-linkHover">
